@@ -1,13 +1,26 @@
 import style from "@/layouts/DefaultLayout.module.scss";
+import LayoutBlock from "@/layouts/partials/LayoutBlock";
 
 const Footer = (props) => {
 
     return (
-        <footer>
-            <header className={`${style["default-layout__container"]}`}>
-                <h3>Footer</h3>
+        <LayoutBlock tag={"footer"} className={"py-3"}>
+            <header>
+                <h3>Vous avez atteint la zone infini, attention où vous cliquez.</h3>
             </header>
-        </footer>
+            <section>
+                info x
+            </section>
+            <section>
+                info y
+            </section>
+            <section>
+                info Z
+            </section>
+            <footer>
+                Mamarmite - connecter vos outils
+            </footer>
+        </LayoutBlock>
     );
 }
 

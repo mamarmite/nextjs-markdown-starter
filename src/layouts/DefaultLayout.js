@@ -5,16 +5,16 @@ import style from "@/layouts/DefaultLayout.module.scss";
 const DefaultLayout = ({children}) => {
 
     return (
-        <>
-            <Navbar />
-            <main className={`${style["default-layout"]}`}>
-                <div className={`${style["default-layout__container"]}`}>
+        <div className={"website container-fluid"}>
+            <main className={`${style["default-layout"]} bg-white`}>
+                <Navbar className={"bg-white"} />
+                <div className={"content"}>
                     {children}
                 </div>
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 
-export default DefaultLayout
+export default DefaultLayout;

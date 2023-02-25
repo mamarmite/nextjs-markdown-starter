@@ -1,3 +1,4 @@
+import LayoutBlock from "@/layouts/partials/LayoutBlock";
 
 const Header = (props) => {
 
@@ -6,9 +7,9 @@ const Header = (props) => {
     } = props;
 
     return (
-        <header>
+        <LayoutBlock tag={"header"}>
             <h1>{title}</h1>
-        </header>
+        </LayoutBlock>
     );
 }
 

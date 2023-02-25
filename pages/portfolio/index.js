@@ -5,9 +5,9 @@ import LayoutBlock from "@/layouts/partials/LayoutBlock";
 const home = () => {
     return (
         <DefaultLayout>
-            <Header title={"CTA principal"} />
+            <Header title={"Portfolio"} />
             <LayoutBlock>
-                <p>Main section!</p>
+                <p>Ici gi mon expertise caché au travers des résultats.</p>
             </LayoutBlock>
         </DefaultLayout>
     );
