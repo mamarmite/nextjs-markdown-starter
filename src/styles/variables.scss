@@ -1,18 +1,26 @@
+$space-cadet: #212D58;
+$clementine-peel: #E8662B;
+$humpy-dumpty: #EEE4CD;
+$bleu-jean-blue: #3463A9;
+$sunnysunshine: #F1AA45;
+
 // scss-docs-start color-variables
-$blue:    #0d6efd;
+$blue:    $bleu-jean-blue;
+$blue-dark: $space-cadet;
+$red:     #A83535;
+$orange:  $clementine-peel;
+$yellow:  $sunnysunshine;
+$green:   #54A835;
+
 $indigo:  #6610f2;
 $purple:  #6f42c1;
 $pink:    #d63384;
-$red:     #dc3545;
-$orange:  #fd7e14;
-$yellow:  #ffc107;
-$green:   #198754;
 $teal:    #20c997;
 $cyan:    #0dcaf0;
 
 // scss-docs-start gray-color-variables
 $white:    #fff;
-$gray-100: #f8f9fa;
+$gray-100: #EDEDEF;
 $gray-200: #e9ecef;
 $gray-300: #dee2e6;
 $gray-400: #ced4da;
@@ -20,12 +28,13 @@ $gray-500: #adb5bd;
 $gray-600: #6c757d;
 $gray-700: #495057;
 $gray-800: #343a40;
-$gray-900: #212529;
+$gray-900: #252523;
 $black:    #000;
 
 // scss-docs-start colors-map
 $colors: (
     "blue":       $blue,
+    "blue-dark": $blue-dark,
     "indigo":     $indigo,
     "purple":     $purple,
     "pink":       $pink,
@@ -44,10 +53,11 @@ $colors: (
 
 // scss-docs-start theme-coor-variables
 $primary:       $blue;
-$secondary:     $gray-600;
+$secondary:     $blue-dark;
+$third:         $clementine-peel;
+$info:          $humpy-dumpty;
 $success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
+$warning:       lighten($red, 40%);
 $danger:        $red;
 $light:         $gray-100;
 $dark:          $gray-900;
@@ -66,5 +76,24 @@ $theme-colors: (
 );
 
 
-$body-bg-color: $white;
-$footer-bg-color: $light;
+$footer-bg-color: $info;
+$body-bg:                   $white;
+$body-color:                $space-cadet;
+
+//  FONTS
+
+$font-family-sans-serif:      "Lufga";//, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$font-weight-lighter: lighter;
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+$font-weight-base: $font-weight-light;
+
+
+//  HEADING
+$headings-font-weight: $font-weight-semibold;

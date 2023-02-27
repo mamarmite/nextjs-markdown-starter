@@ -25,14 +25,8 @@ export default function Post(props) {
     const {post} = props;
 
     return (
-        <DefaultLayout>
+        <DefaultLayout title={props?.title ?? "Blogue"} meta={props?.date}>
             <LayoutBlock>
-                {post?.title ?? "title"}
-                <br />
-                {post?.slug ?? "slug"}
-                <br />
-                {post?.date ?? "date"}
-                <br />
                 <div dangerouslySetInnerHTML={{ __html: post?.contentHtml }} />
             </LayoutBlock>
         </DefaultLayout>

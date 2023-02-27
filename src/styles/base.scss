@@ -10,4 +10,7 @@ html {
 body {
     font-size: 16px;
     background-color: $footer-bg-color;
+    font-variant-alternates: styleset(alt-a);
+    //font-variant-ligatures: no-common-ligatures;
+    //font-variant-ligatures: discretionary-ligatures;
 }

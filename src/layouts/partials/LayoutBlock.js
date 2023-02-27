@@ -6,10 +6,10 @@ const LayoutBlock = ({children, ...props}) => {
         tag,
         className
     } = props
-    const mainTag = tag ?? "div";
+    const MainTag = tag ?? "div";
 
     return (
-        <mainTag className={className}>
+        <MainTag className={className}>
             <div className={"container"}>
                 <div className={"row"}>
                     <div className={"col"}>
@@ -17,7 +17,7 @@ const LayoutBlock = ({children, ...props}) => {
                     </div>
                 </div>
             </div>
-        </mainTag>
+        </MainTag>
     );
 }
 
