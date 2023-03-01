@@ -1,15 +1,13 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import LayoutBlock from "@/layouts/partials/LayoutBlock";
-import {getPage} from "@/controllers/PagesController";
+import pageController from "@/controllers/PagesController";
 
 
-export async function getStaticProps(context) {
-
-    const page = await getPage("design-system");
+export async function getStaticProps() {
 
     return {
         props: {
-            page: page
+            page: await pageController.getBySlug("design-system")
         }
     };
 }

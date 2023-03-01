@@ -1,7 +1,5 @@
-import {getMarkdownFilesSlugs, loadMarkdownBySlug} from "@/markdown/Loader";
+import Controller from "@/controllers/Controller";
 
-const folder = "pages";
 
-export const getPage = async (slug) => {
-    return await loadMarkdownBySlug(slug, folder);
-}
+const pageController = new Controller("pages");
+export default pageController;

@@ -7,6 +7,7 @@ import path from "path";
 //basé sur le tutoriel : https://nextjs.org/learn/basics/dynamic-routes/render-markdown
 
 const markdownBasePath = 'content';
+const cache = new Map();
 
 export async function loadMarkdownBySlug(slug, targetPath, extension="mdx", encoding="utf8")
 {
@@ -31,11 +32,30 @@ export async function loadMarkdownBySlug(slug, targetPath, extension="mdx", enco
 }
 
 export async function getMarkdownFilesSlugs(targetPath, extension="mdx") {
+    const cacheKey = "FilesSlugs"+targetPath;
+    if (cache.has(cacheKey)) return cache.get(cacheKey);
+
     const mdxExpression = /\.mdx?$/;
     const mdExpression = /\.md?$/;
     const expression = extension === "mdx" ? mdxExpression : mdExpression;
 
-    return fs.readdirSync( path.resolve(path.join(`${markdownBasePath}/${targetPath}`)) )
+    cache.set(cacheKey, await fs.readdirSync( path.resolve(path.join(`${markdownBasePath}/${targetPath}`)) )
         .map((path) => path.replace(expression, ''))
-        .map((slug) => ({ params: { slug } }));
+    );
+    return cache.get(cacheKey);
+}
+
+export async function getMarkdownFilesSlugsForPaths(targetPath, extension="mdx")  {
+
+    const files = await getMarkdownFilesSlugs(targetPath, extension);
+    const slugs = files.map((slug) => ({ params: { slug } }));
+
+    return {
+        paths: slugs,
+        fallback: false
+    }
+}
+
+export async function getMarkdownList(targetPath, extension = 'mdx') {
+    return await getMarkdownFilesSlugs(targetPath, extension);
 }

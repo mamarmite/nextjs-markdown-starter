@@ -14,7 +14,7 @@ const DefaultLayout = (props) => {
     return (
         <div className={"website container-fluid gx-0"}>
             <main className={`${style["default-layout"]} bg-white`}>
-                <Navbar className={"bg-white"} />
+                <Navbar className={"container-fluid bg-white"} />
                 <Header title={title} meta={meta} />
                 <div className={"content"}>
                     {children}

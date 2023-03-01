@@ -5,21 +5,18 @@ import pageController from "@/controllers/PagesController";
 
 export async function getStaticProps() {
 
-    const page = await pageController.getBySlug("home");
-
     return {
         props: {
-            page: page
+            page: await pageController.getBySlug("a-propos")
         }
     };
 }
 
-const home = (props) => {
-    const {
-        page
-    } = props;
+export default function AboutMe(props) {
+    const {page} = props;
+
     return (
-        <DefaultLayout title={page?.title ?? "Ever boiling ideas"} meta={page?.date}>
+        <DefaultLayout title={page?.title ?? "title"} meta={page?.date}>
             <LayoutBlock>
                 <div dangerouslySetInnerHTML={{ __html: page?.contentHtml }} />
             </LayoutBlock>
@@ -27,4 +24,3 @@ const home = (props) => {
     );
 }
 
-export default home

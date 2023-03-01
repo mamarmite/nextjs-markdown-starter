@@ -1,18 +1,14 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
-import {getArticleBySlug, getArticlesPath} from "@/articles/ArticlesController";
+import articlesController from "@/articles/ArticlesController";
 import LayoutBlock from "@/layouts/partials/LayoutBlock";
 
 export const getStaticPaths = async () => {
-    const paths = await getArticlesPath();
-    return {
-        paths,
-        fallback: false,
-    };
+    return await articlesController.getPath();
 };
 
 export async function getStaticProps(context) {
 
-    const post = await getArticleBySlug(context.params.slug);
+    const post = await articlesController.getBySlug(context.params.slug);
 
     return {
         props: {
@@ -21,11 +17,13 @@ export async function getStaticProps(context) {
     };
 }
 
-export default function Post(props) {
-    const {post} = props;
+export default function Article(props) {
+    const {
+        post
+    } = props;
 
     return (
-        <DefaultLayout title={props?.title ?? "Blogue"} meta={props?.date}>
+        <DefaultLayout title={post?.title ?? "Blogue"} meta={post?.date}>
             <LayoutBlock>
                 <div dangerouslySetInnerHTML={{ __html: post?.contentHtml }} />
             </LayoutBlock>

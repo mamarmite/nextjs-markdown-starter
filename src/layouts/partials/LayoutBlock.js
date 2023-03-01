@@ -4,17 +4,17 @@ const LayoutBlock = ({children, ...props}) => {
 
     const {
         tag,
-        className
+        className,
+        containerClass
     } = props
     const MainTag = tag ?? "div";
+    const containerClasses = containerClass ?? "container";
 
     return (
-        <MainTag className={className}>
-            <div className={"container"}>
-                <div className={"row"}>
-                    <div className={"col"}>
-                        {children}
-                    </div>
+        <MainTag className={`${containerClasses} ${className}`}>
+            <div className={"row"}>
+                <div className={"col"}>
+                    {children}
                 </div>
             </div>
         </MainTag>

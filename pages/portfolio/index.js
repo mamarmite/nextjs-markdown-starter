@@ -1,25 +1,48 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
-import Header from "@/layouts/partials/Header";
 import LayoutBlock from "@/layouts/partials/LayoutBlock";
-import {getPage} from "@/controllers/PagesController";
+import pageController from "@/controllers/PagesController";
+import portfolioController from "@/portfolio/PortfolioController";
+import {loadMarkdownBySlug} from "@/markdown/Loader";
+import Project from "@/portfolio/layouts/Project";
 
 
-export async function getStaticProps(context) {
 
-    const page = await getPage("portfolio");
+export async function getStaticProps() {
+
+    const page = await pageController.getBySlug("portfolio");
+    const portfolioProjects = await portfolioController.getAll();
+
+    const projectPromises = portfolioProjects.map(async (slug) => {
+        return await loadMarkdownBySlug(slug, "portfolio");
+    });
 
     return {
         props: {
-            page: page
+            page: page,
+            projects: await Promise.all(projectPromises)
         }
-    };
+    }
 }
 
 const home = (props) => {
+    const {
+        page,
+        projects
+    } = props;
     return (
         <DefaultLayout title={props?.title ?? "Portfolio"} meta={props?.date}>
             <LayoutBlock>
-                <p>Ici gi mon expertise caché au travers des résultats.</p>
+                <div dangerouslySetInnerHTML={{ __html: page?.contentHtml }} />
+            </LayoutBlock>
+            <LayoutBlock>
+                {
+                    projects.length > 0 &&
+                    projects.map((project) => {
+                        return (
+                            <Project {...project} />
+                        )
+                    })
+                }
             </LayoutBlock>
         </DefaultLayout>
     );
