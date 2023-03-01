@@ -26,8 +26,10 @@ const Navbar = (props) => {
                         <ul className="navbar-nav">
                             <li className="nav-item"><a href={"/portfolio"} className={"nav-link"} title={"Portfolio"} rel={"follow"}>Portfolio</a></li>
                             <li className="nav-item"><a href={"/services"} className={"nav-link"} title={"Comment je peux améliorer votre situation"} rel={"follow"}>Mes services</a></li>
+                            <li className="nav-item"><a href={"/open-source"} className={"nav-link"} title={"Projets open source"} rel={"follow"}>Open source</a></li>
                             <li className="nav-item"><a href={"/a-propos"} className={"nav-link"} title={"À propos de moi"} rel={"follow"}>À Propos</a></li>
                             <li className="nav-item"><a href={"/blogue"} className={"nav-link"} title={"Blogue"} rel={"follow"}>Blogue</a></li>
+                            <li className="nav-item"><a href={"/lab"} className={"nav-link"} title={"Laboratoire et expérimentations"} rel={"follow"}>Lab</a></li>
                         </ul>
                     </div>
                 </div>
