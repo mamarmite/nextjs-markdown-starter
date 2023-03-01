@@ -1,6 +1,6 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import LayoutBlock from "@/layouts/partials/LayoutBlock";
-import pageController from "@/controllers/PagesController";
+import pageController from "@/pages/PagesController";
 import portfolioController from "@/portfolio/PortfolioController";
 import {loadMarkdownBySlug} from "@/markdown/Loader";
 import Project from "@/portfolio/layouts/Project";

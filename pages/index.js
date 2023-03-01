@@ -1,6 +1,6 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import LayoutBlock from "@/layouts/partials/LayoutBlock";
-import pageController from "@/controllers/PagesController";
+import pageController from "@/pageContent/PagesController";
 
 
 export async function getStaticProps() {

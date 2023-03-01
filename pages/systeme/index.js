@@ -1,6 +1,5 @@
-import DefaultLayout from "@/layouts/DefaultLayout";
-import LayoutBlock from "@/layouts/partials/LayoutBlock";
-import pageController from "@/controllers/PagesController";
+import pageController from "@/pageContent/PagesController";
+import PageLayout from "@/pageContent/layouts/PageLayout";
 
 
 export async function getStaticProps() {
@@ -16,11 +15,8 @@ export default function Systeme(props) {
     const {page} = props;
 
     return (
-        <DefaultLayout title={page?.title ?? "title"} meta={page?.date}>
-            <LayoutBlock>
-                <div dangerouslySetInnerHTML={{ __html: page?.contentHtml }} />
-            </LayoutBlock>
-        </DefaultLayout>
+        <PageLayout
+            page={page} />
     );
 }
 
